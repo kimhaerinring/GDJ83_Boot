@@ -29,5 +29,7 @@
 			</c:forEach>
 		</tbody>		
 	</table>
+	
+	<a href="/qna/add"><button>Add List</button></a>
 </body>
 </html>
