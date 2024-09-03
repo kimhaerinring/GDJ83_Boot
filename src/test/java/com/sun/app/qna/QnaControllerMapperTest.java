@@ -82,11 +82,9 @@ class QnaControllerMapperTest {
 	@Test
 	public void addTest()throws Exception {
 		MultiValueMap<String,String> map = new LinkedMultiValueMap<>();
-
 		map.add("boardTitle", "testest");
 		map.add("boardWriter", "haerin");
 		map.add("boardContents", "haerin");
-		
 		
 		mockMvc.perform(post("/qna/add")
 				.params(map)
