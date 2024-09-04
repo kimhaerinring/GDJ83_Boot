@@ -1,6 +1,7 @@
 package com.sun.app.qna;
 
 import java.sql.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,5 +33,6 @@ public class QnaVO {
 	   private long ref;
 	   private long step;
 	   private long dex;
+	   private List<QnaFileVO> ar;
 
 }

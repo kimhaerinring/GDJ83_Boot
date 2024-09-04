@@ -46,7 +46,14 @@ public class QnaService {
 				continue;
 			}
 			String fileName =fileManager.fileSave(upload+name,mf); //d:/upload/qna
-			log.info("저장된 파일명: {}",fileName);
+			
+			QnaFileVO qnaFileVO = new QnaFileVO();
+			qnaFileVO.setFileName(fileName);
+			qnaFileVO.setOriName(mf.getOriginalFilename());
+			qnaFileVO.setBoardNum(qnaVO.getBoardNum());
+			result = qnaMapper.addFile(qnaFileVO);
+			
+			
 		}
 		
 		
@@ -56,4 +63,6 @@ public class QnaService {
 	public QnaVO getDetail(QnaVO qnaVO)throws Exception{
 		return qnaMapper.getDetail(qnaVO);
 	}
+	
+	
 }

@@ -49,6 +49,7 @@ public class QnaController {
 		int result = qnaService.add(qnaVO, attaches);
 		return "redirect:./list";
 	}
+	
 	@GetMapping("detail")
 	public void getDetail(QnaVO QnaVO,Model model) throws Exception{
 		QnaVO = qnaService.getDetail(QnaVO);
