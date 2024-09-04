@@ -52,11 +52,8 @@ public class QnaService {
 			qnaFileVO.setOriName(mf.getOriginalFilename());
 			qnaFileVO.setBoardNum(qnaVO.getBoardNum());
 			result = qnaMapper.addFile(qnaFileVO);
-			
-			
+				
 		}
-		
-		
 		
 		return result;
 	}
@@ -64,5 +61,10 @@ public class QnaService {
 		return qnaMapper.getDetail(qnaVO);
 	}
 	
+	public QnaFileVO getFileDetail (QnaFileVO qnaFileVO)throws Exception{
+		
+		return  qnaMapper.getFileDetail(qnaFileVO);
+		
+	}
 	
 }
