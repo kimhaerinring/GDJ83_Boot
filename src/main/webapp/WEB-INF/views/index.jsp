@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Home</title>
 </head>
 <body>
-
+	<h3>home</h3>
+	<a href="./qna/list"><button>Qna List</button></a>
 </body>
 </html>

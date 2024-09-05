@@ -40,6 +40,9 @@ public class QnaService {
 		int result= qnaMapper.add(qnaVO);
 		log.info("=================Insert After BoardNum:{}",qnaVO.getBoardNum());
 		result = qnaMapper.refUpdate(qnaVO);
+		if(result ==1) {
+			throw new Exception();
+		}
 		//파일을 하드 디스크에 저장 후 DB 에 정보를 추가
 		for(MultipartFile mf :attaches) {
 			if(mf.isEmpty()|| mf==null) {
