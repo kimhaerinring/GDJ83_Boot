@@ -13,10 +13,11 @@ import org.springframework.web.servlet.view.AbstractView;
 import com.sun.app.qna.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+//beanNameViewResolve
 @Component
 public class FileDownView extends AbstractView{
 	@Value("${app.upload}")
-	private String path;
+	private String path; //D:/upload/
 	
 	@Override
 	protected void renderMergedOutputModel(Map<String, Object> model, HttpServletRequest request,
