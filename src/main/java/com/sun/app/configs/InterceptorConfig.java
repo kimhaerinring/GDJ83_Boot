@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer{
@@ -12,7 +13,8 @@ public class InterceptorConfig implements WebMvcConfigurer{
 	private LoginInterceptor loginInterceptor;
 	@Autowired
 	private AdminCheckInterceptor adminCheckInterceptor;
-	
+	@Autowired
+	private LocaleChangeInterceptor localeChangeInterceptor;
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 	//어떤 url이왔을 때 어떤 interceptor을 실행 할 것인가?
@@ -24,6 +26,8 @@ public class InterceptorConfig implements WebMvcConfigurer{
 		registry.addInterceptor(adminCheckInterceptor)
 		.addPathPatterns("/admin/*");
 		
+		registry.addInterceptor(localeChangeInterceptor)
+		.addPathPatterns("/**");
 		
 	}
 	
