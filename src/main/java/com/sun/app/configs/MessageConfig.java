@@ -15,6 +15,7 @@ public class MessageConfig implements WebMvcConfigurer{
 	@Bean
 	 LocaleResolver localeResolver() {
 		//차이점 session 연결할동안 사용 로그아웃하면 사라짐 cookie는 정해둔 기간까지 남아있음
+		
 		//1. Session
 		SessionLocaleResolver resolver = new SessionLocaleResolver();
 		resolver.setDefaultLocale(Locale.KOREAN);

@@ -17,7 +17,9 @@
 	
 	<img alt="" src="">
 	<a href="./qna/list"><button>list</button></a>
+	<a href="./qna/add"><button>Add list</button></a>
 	<a href="./member/add"><button>add</button></a>
+		
 	<a href="./member/login"><button>login</button></a>
 	<a href="./member/logout"><button>logout</button></a>
 	
@@ -26,6 +28,7 @@
 	</c:if>
 	
 	<c:if test="${not empty member}">
+	<a href="./member/mypage"><button>mypage</button></a>
 		<h1>Login 성공</h1>
 		<spring:message code="member.login.message" arguments="${member.username}-${member.email}" argumentSeparator="-"></spring:message>
 		<c:forEach items="${member.vos}" var="r">
