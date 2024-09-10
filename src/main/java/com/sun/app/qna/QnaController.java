@@ -47,7 +47,7 @@ public class QnaController {
 	public void add(QnaVO qnaVO) throws Exception{}
 		
 	@PostMapping("add")
-	public String add( @Valid QnaVO qnaVO,BindingResult bindingResult ,MultipartFile [] attaches )   throws Exception{
+	public String add(@Valid QnaVO qnaVO,BindingResult bindingResult ,MultipartFile [] attaches )   throws Exception{
 		if(bindingResult.hasErrors()) {
 			log.error("Writer가 비어있음");
 			return "qna/add";

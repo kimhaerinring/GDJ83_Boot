@@ -19,12 +19,12 @@ public class InterceptorConfig implements WebMvcConfigurer{
 	public void addInterceptors(InterceptorRegistry registry) {
 	//어떤 url이왔을 때 어떤 interceptor을 실행 할 것인가?
 	// /qna/list -> loginInterceptor 	
-		registry.addInterceptor(loginInterceptor)
-			.addPathPatterns("/qna/*")
-			.excludePathPatterns("/qna/list");
-		
-		registry.addInterceptor(adminCheckInterceptor)
-		.addPathPatterns("/admin/*");
+	/*
+	 * registry.addInterceptor(loginInterceptor) .addPathPatterns("/qna/*")
+	 * .excludePathPatterns("/qna/list");
+	 * 
+	 * registry.addInterceptor(adminCheckInterceptor) .addPathPatterns("/admin/*");
+	 */
 		
 		registry.addInterceptor(localeChangeInterceptor)
 		.addPathPatterns("/**");
