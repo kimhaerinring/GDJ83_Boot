@@ -24,6 +24,8 @@ public class SecurityConfig{
 	@Autowired
 	private SecurityLoginFailHandler securityLoginFailHandler;
 	@Autowired
+	private SecurityLogoutSuccessHandler securityLogoutSuccessHandler;
+	@Autowired
 	private MemberUserService memberUserService;
 	@Bean
 	 WebSecurityCustomizer webSecurityCustomizer()throws Exception{
@@ -83,6 +85,7 @@ public class SecurityConfig{
 							logout
 							.logoutUrl("/member/logout") //로그아웃 URL 지정
 							//.logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
+							.logoutSuccessHandler(securityLogoutSuccessHandler)
 							.logoutSuccessUrl("/")
 							.invalidateHttpSession(true) //true 세션 만료 , false 세션 만료X
 							//.deleteCookies("") 쿠키 이름을 넣으면 쿠키 삭제하고 싶을때 사용
@@ -116,6 +119,17 @@ public class SecurityConfig{
 						
 						
 					)
+			
+			//Social Login
+			.oauth2Login(
+					oauth2 ->
+						oauth2.userInfoEndpoint(
+								   			user ->
+								   					user.userService(memberUserService)
+								   				)
+								   			
+					)
+				           
 			
 		;
 		

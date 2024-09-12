@@ -4,11 +4,13 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.security.access.vote.RoleVoter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import com.sun.app.validate.MemberAddGroup;
 import com.sun.app.validate.MemberUpdateGroup;
@@ -18,7 +20,7 @@ import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 @Data
-public class MemberVO implements UserDetails{
+public class MemberVO implements UserDetails , OAuth2User{
 	   @NotBlank(groups = {MemberAddGroup.class,MemberUpdateGroup.class})
 	   private String username;
 	   @NotBlank(groups = {MemberAddGroup.class})
@@ -37,6 +39,27 @@ public class MemberVO implements UserDetails{
 	   private boolean enabled;
 	   
 	   private List<RoleVO> vos;
+	   
+	   //Oauth2User
+	   //token 정보 저장
+	   private Map<String, Object> attirbutes;
+	   
+	   private String accessToken;
+	   private String sns;//네이버냐 카카오냐 구분하기 위헤서
+	   @Override
+	   public Map<String, Object> getAttributes() {
+		 
+		  return this.attirbutes;
+	   }
+		   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> authorities = new ArrayList<>();
