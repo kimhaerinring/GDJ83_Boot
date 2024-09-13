@@ -31,10 +31,7 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-		<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-oauth2-client</artifactId>
-		</dependency>
+
 		<!-- jakarta.servlet-api -->
 		<dependency>
 		    <groupId>jakarta.servlet</groupId>
@@ -57,10 +54,7 @@
 		    <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
 		</dependency>
 		<!-- 보안-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+		
 			<!--security tag -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
