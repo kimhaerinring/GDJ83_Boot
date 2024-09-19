@@ -31,7 +31,7 @@ public class QnaService {
 	private FileManager fileManager;
 	
 	public List<QnaVO> getList(Pager pager) throws Exception{
-		pager.setPage(1L);
+
 		pager.makeRow();
 		log.info("upload path:{}",upload);
 		return qnaMapper.getList(pager);

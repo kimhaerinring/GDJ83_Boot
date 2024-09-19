@@ -36,10 +36,12 @@ public class QnaController {
 		return this.board;
 	}
 	
-	@GetMapping("list")
+	@GetMapping("list/{page}")
 	@CrossOrigin
 	//model 을 쓰는 이유는 jsp에 가져가기위해서
 	public List<QnaVO> getList(Pager pager) throws Exception{
+		//log.info("page:{}",page);
+		log.info("pager:{}",pager);
 		List<QnaVO>ar =qnaService.getList(pager);
 		return ar;
 		

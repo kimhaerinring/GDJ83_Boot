@@ -13,22 +13,25 @@
 
 
 
-	<select id="getList" resultType="QnaVO" parameterType="Pager">
+	<select id="getList"  resultType="QnaVO" parameterType="Pager">
 		SELECT * FROM QNA
 		<where>
 			<if test="kind == 'k1'">
 				BOARD_WRITER LIKE CONCAT('%',#{search},'%')
 			</if>
+			
 			<if test="kind == 'k2'">
 				BOARD_CONTENTS LIKE CONCAT('%',#{search},'%')
 			</if>
+			
 			<if test="kind == 'k3'">
 				BOARD_TITLE LIKE CONCAT('%',#{search},'%')
 			</if>
 		</where>
-		
+		 
 		ORDER BY BOARD_NUM DESC
-		LIMIT #{startRow},#{perPage}
+		
+		LIMIT #{startRow}, #{perPage}
 	</select>
 
 	<insert id="add" parameterType="QnaVO" useGeneratedKeys="true" keyProperty="boardNum">
